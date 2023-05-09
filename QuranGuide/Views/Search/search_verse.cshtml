@@ -11,12 +11,16 @@
 </head>
 <body>
 	<div class="quran_image">
+
 		<div class="center">
 			<h1 style="color:#FAFAD2;">Search for Any Verse in Holy Quran!</h1>
-			<form action="/" method="get">
-				<input type="text" id="searchbox" name="q" class="textbox" required>
+			<h4 style="color:#FAFAD2;">In Arabic Only</h4>
+
+			<form asp-action="searched_arabic_verses" asp-controller="Search">
+				<input type="text" name="arabic_keyword" class="textbox" required>
 				<button type="submit" class="btn" style="color:#FAFAD2;">Search</button>
 			</form>
+
 		</div>
 	</div>
 
