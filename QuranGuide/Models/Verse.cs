@@ -1,21 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace QuranGuide.Models
 {
     public class Verse
     {
-        [JsonProperty]
-        private int number { get; set; }
 
-        [JsonProperty]
-        public int numberInSurah { get; set; }
+        public int id { get; set; }
 
-        [JsonProperty]
+        public int surahId { get; set; }
+
         public string text { get; set; }
 
-        [JsonProperty]
-        public Surah surah { get; set; }
-
-
+        public  Surah surah { get; set; }
     }
 }

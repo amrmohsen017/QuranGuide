@@ -1,6 +1,24 @@
+using Microsoft.Extensions.Configuration;
+using QuranGuide.Data;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<QuranContext>(options =>
+                    {
+                        options.UseSqlServer(builder.Configuration["ConnectionStrings:QuranConnection"]);
+                        options.EnableSensitiveDataLogging(true);
+
+                    });
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+//builder.Services.AddScoped<DbContext, QuranContext>();
+
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 
@@ -25,4 +43,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Search}/{action=search_verse}/{id?}");
 
+
+
+ReadData.fill_database_if_empty(app);
 app.Run();

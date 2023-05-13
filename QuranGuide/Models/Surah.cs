@@ -1,14 +1,18 @@
-﻿using Newtonsoft.Json;
-
-namespace QuranGuide.Models
+﻿namespace QuranGuide.Models
 {
     public class Surah
     {
-        [JsonProperty]
-        private int number { get; set; }
-        [JsonProperty]
+        public int id {  get; set; }
+
         public string name { get; set; }
-        [JsonProperty]
-        private string revelation_type { get; set; }
+
+        public int verses_count { get; set; }
+        
+
+        public int? revelation_type { get; set; }
+
+        public int? chapter_number { get; set; }
+
+        public ICollection<Verse> verses { get; set; }
     }
 }

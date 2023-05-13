@@ -1,24 +1,4 @@
-﻿@model QuranGuide.Models.JsonReceived
+﻿
 
 
-
-
-@foreach (var verseItem in Model.data.matches)
-{
-    <h4>Surah</h4>
-    <h5>@verseItem.surah.name</h5>
-
-    <h4>Verse Number in Surah: </h4>
-    <h5>@verseItem.numberInSurah</h5>
-
-    <h5>Verse:</h5>
-    <h4 style="color:#006400;">@verseItem.text</h4>
-
-    <hr>
-
-}
-
-
-<script>
-    console.log(@Model.data.matches)
-</script>
+<p>@ViewBag.text</p>
